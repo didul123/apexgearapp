@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
 
     <!-- Banner Section -->
     <ImageView
@@ -10,21 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/banner_placeholder"
-        android:contentDescription="Banner Image"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="Banner Image"
+        android:background="@drawable/image_background"/>
 
     <!-- Search Bar -->
-    <EditText
-        android:id="@+id/searchBar"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search products..."
-        android:padding="12dp"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeColor="@android:color/transparent"
+        app:boxBackgroundColor="@color/white"
+        app:shapeAppearanceOverlay="@style/RoundedTextInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search products..."
+            android:padding="12dp"
+            android:background="@null"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Products List (RecyclerView) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_margin="8dp"/>
 </LinearLayout>

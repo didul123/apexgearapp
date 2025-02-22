@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void fetchProducts() {
-        String url = "http://yourserver.com/get_products.php"; // Replace with actual server URL
+        String url = "http://192.168.1.78/apexgear/get_products.php"; // Replace with actual server URL
 
         Request request = new Request.Builder().url(url).build();
 
