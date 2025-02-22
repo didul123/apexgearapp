@@ -30,7 +30,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productName.setText(product.getName());
         holder.productBrand.setText(product.getBrand());
         holder.productPrice.setText("$" + product.getPrice());
-        // Load product image using Picasso or any other image loading library
         Picasso.get().load("http://192.168.1.78/apexgear/get_products.php" + product.getImage()).into(holder.productImage);
     }
 

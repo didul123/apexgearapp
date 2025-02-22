@@ -50,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String password) {
-        String url = "http://192.168.1.78/apexgear/sign_in.php";  // Replace with your actual URL
+        String url = "http://192.168.1.78/apexgear/sign_in.php";
 
         MediaType FORM = MediaType.parse("application/x-www-form-urlencoded");
         String postData = "email=" + email + "&password=" + password;
@@ -71,18 +71,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     String responseData = response.body().string();
-
-                    // Assuming the server response contains a success message
-                    if (responseData.equals("success")) {  // Adjust this condition as needed
-                        runOnUiThread(() -> {
-                            // Navigate to HomeActivity upon successful sign-in
-                            Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                            finish();  // Close the SignInActivity so the user can't go back
-                        });
-                    } else {
-                        runOnUiThread(() -> Toast.makeText(SignInActivity.this, "Invalid credentials", Toast.LENGTH_LONG).show());
-                    }
+                    runOnUiThread(() -> Toast.makeText(SignInActivity.this, responseData, Toast.LENGTH_LONG).show());
                 } else {
                     runOnUiThread(() -> Toast.makeText(SignInActivity.this, "Failed to sign in", Toast.LENGTH_LONG).show());
                 }
