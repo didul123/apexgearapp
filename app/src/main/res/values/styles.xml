@@ -1,0 +1,5 @@
+<resources>
+    <style name="ShapeAppearance.MaterialComponents.CornerSize">
+        <item name="cornerSize">8dp</item> <!-- Adjust the corner size as needed -->
+    </style>
+</resources>
