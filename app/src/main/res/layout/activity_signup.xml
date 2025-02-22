@@ -3,42 +3,94 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@color/white">
 
+    <!-- Logo or App Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apex Gear"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <!-- Name Input -->
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name" />
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email" />
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Password Input -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Phone Input -->
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone" />
+        android:hint="Phone"
+        android:inputType="phone"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Address Input -->
     <EditText
         android:id="@+id/etAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Address" />
+        android:hint="Address"
+        android:inputType="textPostalAddress"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"/>
 
+    <!-- Sign Up Button -->
     <Button
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up" />
+        android:text="Sign Up"
+        android:backgroundTint="@color/primaryColor"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Already have an account? Sign In -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Sign In"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/tvSignIn"/>
 </LinearLayout>

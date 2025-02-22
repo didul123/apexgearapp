@@ -1,5 +1,6 @@
 package com.didul.apexgearapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,15 @@ public class SignUpActivity extends AppCompatActivity {
 
                 // Send data to PHP script (sign_up.php) via HTTP POST
                 new SignUpTask().execute(name, email, password, phone, address);
+            }
+        });
+
+        // Handle Sign In link click (optional, if you want the user to go back to sign-in page)
+        findViewById(R.id.tvSignIn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -88,6 +98,17 @@ public class SignUpActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             // Handle the response and show result
             Toast.makeText(SignUpActivity.this, result, Toast.LENGTH_LONG).show();
+
+            // If sign-up is successful, navigate to SignInActivity
+            if (result.equalsIgnoreCase("Sign up successful!")) {
+                // Create an Intent to navigate to SignInActivity
+                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                startActivity(intent);
+                finish(); // Close SignUpActivity so the user can't return to it
+            } else {
+                // If there's an error or user already exists, show the message
+                Toast.makeText(SignUpActivity.this, result, Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
